@@ -1,0 +1,93 @@
+.modal_container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(186, 186, 186, 0.538);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.backdrop {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+}
+.innerContainer {
+  border-radius: 0.5rem;
+  display: flex;
+  z-index: 2;
+  flex-direction: column;
+  background-color: black;
+  padding: 2rem 2rem;
+}
+
+.header_summary {
+  font-size: 1.3rem;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.showw {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.showw > div > p:first-child {
+  font-size: 0.9rem;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+.showw > div > p:last-child {
+  font-size: 0.6rem;
+  font-weight: bold;
+  color: #a3a3a3;
+  text-transform: uppercase;
+}
+
+.image_show {
+  height: 8em;
+  border-radius: 0.5em;
+}
+
+label {
+  margin-top: 1rem;
+}
+.inputs {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem 0;
+  font-size: 1rem;
+  font-weight: 300;
+}
+.innerContainer input {
+  background-color: black;
+  margin-top: 0.8rem;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  font-size: 1.3rem;
+}
+
+.btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .modal_container {
+    position: fixed;
+  }
+  .innerContainer {
+    width: 40%;
+  }
+}
