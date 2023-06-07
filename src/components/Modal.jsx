@@ -51,16 +51,6 @@ const Modal = ({ movie, onClick }) => {
           </div>
         </div>
         <div className="inputs">
-          <label>Name</label>
-
-          <input
-            onChange={(e) =>
-              setData((prev) => ({ ...prev, Name: e.target.value }))
-            }
-            value={data.Name}
-            type="text"
-          />
-
           <label>No. of Persons</label>
           <input
             type="number"
