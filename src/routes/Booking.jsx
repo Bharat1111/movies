@@ -3,9 +3,8 @@ import React from "react";
 import "./booking.css";
 
 const Booking = () => {
-  const user = localStorage.getItem("user");
-  const res = JSON.parse(user);
-  console.log(res);
+  const data = localStorage.getItem("data");
+  const res = JSON.parse(data);
   const bookings = res?.bookings;
   if (!bookings) {
     return (
@@ -28,7 +27,7 @@ const Booking = () => {
             <p>{booking?.time}</p>
             <div>
               <p>Persons</p>
-              <p>{res?.persons}</p>
+              <p>{booking?.persons}</p>
             </div>
           </div>
         ))}

@@ -5,10 +5,11 @@ import "./modal.css";
 
 const Modal = ({ movie, onClick }) => {
   const navigate = useNavigate();
-  const user = localStorage.getItem("user");
-  const initialData = user ? JSON.parse(user) : {};
-  const [data, setData] = useState(initialData);
-  const booking = user
+  const stored_data = localStorage.getItem("data");
+  const initialData = stored_data ? JSON.parse(stored_data) : {};
+
+  const [persons, setPersons] = useState(1);
+  const booking = stored_data
     ? [
         ...initialData?.bookings,
         {
@@ -16,6 +17,7 @@ const Modal = ({ movie, onClick }) => {
           time: movie.show.schedule.days,
           image: movie.show.image.medium,
           language: movie.show.language,
+          persons,
         },
       ]
     : [
@@ -24,13 +26,13 @@ const Modal = ({ movie, onClick }) => {
           time: movie.show.schedule?.days,
           image: movie.show.image?.medium,
           language: movie.show?.language,
+          persons,
         },
       ];
   const checkout = () => {
     localStorage.setItem(
-      "user",
+      "data",
       JSON.stringify({
-        ...data,
         bookings: booking,
       })
     );
@@ -54,10 +56,8 @@ const Modal = ({ movie, onClick }) => {
           <label>No. of Persons</label>
           <input
             type="number"
-            value={data.persons}
-            onChange={(e) =>
-              setData((prev) => ({ ...prev, persons: e.target.value }))
-            }
+            value={persons}
+            onChange={(e) => setPersons(e.target.value)}
           />
         </div>
         <button className="btn" onClick={checkout}>
