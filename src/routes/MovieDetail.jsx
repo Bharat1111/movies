@@ -17,10 +17,9 @@ const MovieDetail = () => {
 
   if (!movies) return <div>Loading...</div>;
 
-  const movie = movies.find((movie) => movie.show.id === Number(movieId));
-  const summary = movie.show.summary.replace(/<[^>]+>/g, "");
-  const { image, rating, schedule, status, name, genres, language } =
-    movie.show;
+  let movie = movies?.find((movie) => movie.show.id === Number(movieId));
+  let summary = movie?.show.summary.replace(/<[^>]+>/g, "");
+  let { image, rating, schedule, status, name, genres, language } = movie?.show;
 
   return (
     // <div className="container">
